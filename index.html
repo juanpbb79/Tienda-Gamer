@@ -1,22 +1,117 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Gamer</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .appbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #666766 ;
+            color: white;
+            padding: 10px 20px;
+        }
+        .logo {
+            height: 40px; 
+        }
+        .buttons {
+            display: flex;
+            gap: 15px; 
+        }
+        .button {
+            background-color: #5aff20;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px; 
+        }
+        .button:hover {
+            background-color: white;
+            
+            color: #5aff20;
+        }
+        .carro {
+            width: 20px;
+            height: 20px;
+        }
         
-        <script src="" async defer></script>
-    </body>
+        .drawer {
+            position: fixed;
+            top: 0;
+            right: -300px; 
+            width: 300px;
+            height: 100%;
+            background-color: #fefefe;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+            transition: right 0.3s ease;
+            z-index: 1000; 
+        }
+        .drawer.open {
+            right: 0; 
+        }
+        .drawer-header {
+            padding: 20px;
+            background-color: #666766 ;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .drawer-content {
+            padding: 20px;
+            text-align: center;
+        }
+        .close-drawer {
+            cursor: pointer;
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="appbar">
+        <img src="" alt="Logo" class="logo"> 
+        <div class="buttons">
+            <button class="button" onclick="openDrawer()">
+                <img class="carro" src="./image/carrito de compra.png" alt="Carrito">
+                Carrito
+            </button>
+        </div>
+    </div>
+
+    <!-- Drawer -->
+    <div id="myDrawer" class="drawer">
+        <div class="drawer-header">
+            <h2>Tu Carrito de Compras</h2>
+            <span class="close-drawer" onclick="closeDrawer()">&times;</span>
+        </div>
+        <div class="drawer-content">
+            <p>Aún no tienes productos en tu carrito.</p>
+        </div>
+    </div>
+
+    <script>
+        function openDrawer() {
+            document.getElementById("myDrawer").classList.add("open");
+        }
+
+        function closeDrawer() {
+            document.getElementById("myDrawer").classList.remove("open");
+        }
+    </script>
+
+</body>
 </html>
