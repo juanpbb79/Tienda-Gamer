@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="./image/logo tienda-gamer.jpg" />
     <title>Tienda Gamer</title>
     <style>
         body {
@@ -13,7 +15,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #666766 ;
+            background-color: #2c2c2c;
             color: white;
             padding: 10px 20px;
         }
@@ -22,26 +24,28 @@
         }
         .buttons {
             display: flex;
-            gap: 15px; 
+            gap: 15px;
+            
         }
-        .button {
-            background-color: #5aff20;
-            border: none;
-            color: white;
+        .button, .buy {
+            background-color: #00ff00;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: 2px solid #00ff00; /* Añadir borde */
+            color: #000;
             padding: 10px 15px;
             text-align: center;
             text-decoration: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, border-color 0.3s; /* Añadir transición para el borde */
             display: flex;
             align-items: center;
             gap: 5px; 
         }
-        .button:hover {
+        .button:hover, .buy:hover {
             background-color: white;
-            
-            color: #5aff20;
+            color: #000;
+            border-color: #000; /* Cambiar color del borde al hacer hover */
         }
         .carro {
             width: 20px;
@@ -64,7 +68,8 @@
         }
         .drawer-header {
             padding: 20px;
-            background-color: #666766 ;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #2c2c2c;
             color: white;
             display: flex;
             justify-content: space-between;
@@ -72,11 +77,17 @@
         }
         .drawer-content {
             padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
         }
         .close-drawer {
             cursor: pointer;
             font-size: 28px;
+        }
+        .buy-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0; /* Espacio superior e inferior */
         }
     </style>
 </head>
@@ -87,7 +98,7 @@
         <div class="buttons">
             <button class="button" onclick="openDrawer()">
                 <img class="carro" src="./image/carrito de compra.png" alt="Carrito">
-                Carrito
+                <strong>Carrito</strong>
             </button>
         </div>
     </div>
@@ -99,7 +110,12 @@
             <span class="close-drawer" onclick="closeDrawer()">&times;</span>
         </div>
         <div class="drawer-content">
-            <p>Aún no tienes productos en tu carrito.</p>
+            <p><strong>Aún no tienes productos en tu carrito.</strong></p>
+        </div>
+        <div class="buy-container">
+            <button class="buy" onclick="redirectToHome()">
+                <strong>Comenzar a comprar </strong> 
+            </button>
         </div>
     </div>
 
@@ -110,6 +126,10 @@
 
         function closeDrawer() {
             document.getElementById("myDrawer").classList.remove("open");
+        }
+
+        function redirectToHome() {
+            window.location.href = "index.html"; // Cambia esto por la URL de tu pantalla principal
         }
     </script>
 
